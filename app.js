@@ -66,38 +66,175 @@ const guideCards = [
   },
 ];
 
+const recoveredDrawingSources = {
+  first: "images/img_001.png",
+  second: "images/img_002.png",
+  basement: "images/img_003.png",
+  site: "assets/site-plan-1945.jpg",
+};
+
 const drawingCards = [
   {
     title: "First Floor Plan",
-    text: "Primary spatial orientation of the main level.",
-    src: `data:image/png;base64,${atlasData.images.first}`,
+    text: "Recovered from the original shared site package for the main level orientation layer.",
+    src: recoveredDrawingSources.first,
   },
   {
     title: "Second Floor Plan",
-    text: "Upper level room distribution and logger context.",
-    src: `data:image/png;base64,${atlasData.images.second}`,
+    text: "Recovered upper-level plan used to read room relationships and logger context.",
+    src: recoveredDrawingSources.second,
   },
   {
     title: "Basement Plan",
-    text: "Lower-level reference for basement logger position.",
-    src: `data:image/png;base64,${atlasData.images.basement}`,
+    text: "Recovered lower-level reference used for basement logger position and support spaces.",
+    src: recoveredDrawingSources.basement,
   },
   {
     title: "1945 Site Plan",
-    text: "Estate-level site context retained as part of the orientation layer.",
-    src: "assets/site-plan-1945.jpg",
-  },
-  {
-    title: "Section",
-    text: "Reserved for the section drawing from the research archive.",
-    placeholder: true,
-  },
-  {
-    title: "Elevation",
-    text: "Reserved for the elevation drawing from the research archive.",
-    placeholder: true,
+    text: "Recovered site context drawing showing the Storrow Estate parcel and approach conditions.",
+    src: recoveredDrawingSources.site,
   },
 ];
+
+const legacyGraphMeta = {
+  coverage: [
+    {
+      label: "Full export window",
+      value: "April 14, 2018 to April 14, 2026",
+      note: "Multi-year comparison used in the earlier PG graph export for indoor room loggers across temperature and RH.",
+    },
+    {
+      label: "Focused export window",
+      value: "April 14, 2021 to April 14, 2026",
+      note: "Recent-year comparison previously used to isolate shorter-term overlap and divergence among indoor logger series.",
+    },
+    {
+      label: "Series structure",
+      value: "7 temperature + 7 RH traces",
+      note: "Each interior logger family appeared twice in the graph exports: once as temperature and once as relative humidity.",
+    },
+    {
+      label: "Atlas accuracy note",
+      value: "Spatial only where validated",
+      note: "Study Office and Sewing Room remain reference-only here because recovered plan data did not include validated marker coordinates for them.",
+    },
+  ],
+  series: [
+    {
+      label: "Basement",
+      value: "GRO-Basement-2374607",
+      note: "Tracked in the previous graph exports as a long-term indoor logger series.",
+    },
+    {
+      label: "Dressing Room",
+      value: "GRO-DressingRoom-2374606",
+      note: "Included in both the full and focused comparison windows.",
+    },
+    {
+      label: "Living Room",
+      value: "GRO-LivingRoom-2374605",
+      note: "Core first-floor reference series retained in the current spatial atlas.",
+    },
+    {
+      label: "Sewing Room",
+      value: "GRO-SewingRoom-1076435",
+      note: "Appeared in the graph exports but is not spatially plotted without verified plan coordinates.",
+    },
+    {
+      label: "Study Office",
+      value: "GRO-StudyOffice-?",
+      note: "Legacy export series preserved as reference inventory only because the recovered source did not confirm its precise marker location.",
+    },
+    {
+      label: "Living Room Chamber",
+      value: "Logger IDs 1255433 and 20459088",
+      note: "The graph exports show two chamber-related logger campaigns, so chamber readings should be treated as repeated monitoring rather than one continuous sensor.",
+    },
+  ],
+  notes: [
+    {
+      label: "What changed",
+      title: "The old graph screenshots are removed, but their date windows remain explicit.",
+      body:
+        "The atlas now carries the earlier chart coverage ranges directly so the viewer can still interpret what the long-range and focused exports represented without opening static screenshots.",
+    },
+    {
+      label: "Why this is more accurate",
+      title: "Only validated sensors are plotted on the plan.",
+      body:
+        "The current atlas keeps floor markers only for datasets whose plan positions were recovered with confidence. Legacy graph-only series are listed as reference inventory instead of being guessed onto the drawings.",
+    },
+    {
+      label: "How to read it",
+      title: "Use the atlas for location, then use the legacy inventory for comparison context.",
+      body:
+        "Start with the mapped room, wall cavity, and exterior positions. Then use the legacy graph series list to remember which indoor logger families were part of the former export comparisons.",
+    },
+  ],
+};
+
+const repairDocumentMap = {
+  "Doors & Hardware": [
+    {
+      title: "Interior Features Catalogue",
+      href: "assets/docs/gro-cmp-interior-features-catalogue.pdf",
+      type: "PDF",
+    },
+    {
+      title: "CMP Intro and Supporting Docs",
+      href: "assets/docs/gro-cmp-aa-intro-and-supporting-documents.pdf",
+      type: "PDF",
+    },
+  ],
+  "Overall Interiors": [
+    {
+      title: "Interior Features Catalogue",
+      href: "assets/docs/gro-cmp-interior-features-catalogue.pdf",
+      type: "PDF",
+    },
+    {
+      title: "Glass and Plaster Plan",
+      href: "assets/docs/gropius-house-conservation-plan-glass-and-plaster.pdf",
+      type: "PDF",
+    },
+  ],
+  "Stone Walls": [
+    {
+      title: "Landscape Features Catalogue",
+      href: "assets/docs/gro-cmp-landscape-features-catalogue.pdf",
+      type: "PDF",
+    },
+    {
+      title: "Exterior Features Catalogue",
+      href: "assets/docs/gro-cmp-exterior-features-catalogue.pdf",
+      type: "PDF",
+    },
+  ],
+  "Garage / Visitor Center": [
+    {
+      title: "Exterior Features Catalogue",
+      href: "assets/docs/gro-cmp-exterior-features-catalogue.pdf",
+      type: "PDF",
+    },
+    {
+      title: "CMP Intro and Supporting Docs",
+      href: "assets/docs/gro-cmp-aa-intro-and-supporting-documents.pdf",
+      type: "PDF",
+    },
+  ],
+  Chimneys: [
+    {
+      title: "Exterior Features Catalogue",
+      href: "assets/docs/gro-cmp-exterior-features-catalogue.pdf",
+      type: "PDF",
+    },
+    {
+      title: "CMP Intro and Supporting Docs",
+      href: "assets/docs/gro-cmp-aa-intro-and-supporting-documents.pdf",
+      type: "PDF",
+    },
+  ],
+};
 
 function formatValue(metric, value, compact = false) {
   if (value === null || value === undefined || Number.isNaN(value)) {
@@ -440,6 +577,53 @@ function buildDrawingsGallery() {
   });
 }
 
+function buildGraphContext() {
+  const coverage = document.getElementById("graphCoverageGrid");
+  const series = document.getElementById("graphSeriesList");
+  const notes = document.getElementById("graphNotesList");
+
+  coverage.innerHTML = "";
+  series.innerHTML = "";
+  notes.innerHTML = "";
+
+  legacyGraphMeta.coverage.forEach((item) => {
+    const card = document.createElement("article");
+    card.className = "graph-meta-tile";
+    card.innerHTML = `
+      <span>${item.label}</span>
+      <strong>${item.value}</strong>
+      <p>${item.note}</p>
+    `;
+    coverage.appendChild(card);
+  });
+
+  legacyGraphMeta.series.forEach((item) => {
+    const card = document.createElement("article");
+    card.className = "graph-series-item";
+    card.innerHTML = `
+      <span>${item.label}</span>
+      <strong>${item.value}</strong>
+      <p>${item.note}</p>
+    `;
+    series.appendChild(card);
+  });
+
+  legacyGraphMeta.notes.forEach((item) => {
+    const card = document.createElement("article");
+    card.className = "graph-note";
+    card.innerHTML = `
+      <span>${item.label}</span>
+      <strong>${item.title}</strong>
+      <p>${item.body}</p>
+    `;
+    notes.appendChild(card);
+  });
+}
+
+function getRepairDocuments(item) {
+  return repairDocumentMap[item.feature] || [];
+}
+
 function buildRepairFilters() {
   const categories = ["All categories", ...new Set(repairsData.map((item) => item.feature))];
   const container = document.getElementById("repairFilters");
@@ -471,12 +655,31 @@ function renderRepairs() {
   filtered.forEach((item) => {
     const card = document.createElement("article");
     card.className = "repair-card";
+    const documents = getRepairDocuments(item);
+    const docsMarkup = documents.length
+      ? `
+        <div class="repair-docs">
+          ${documents
+            .map(
+              (doc) => `
+                <a class="doc-link" href="${doc.href}" target="_blank" rel="noreferrer">
+                  <span>${doc.title}</span>
+                  <small>${doc.type}</small>
+                </a>
+              `
+            )
+            .join("")}
+        </div>
+      `
+      : "";
+
     card.innerHTML = `
       <div class="repair-meta">
         <span class="repair-year">${item.year}</span>
         <span class="repair-tag">${item.feature}</span>
       </div>
       <p>${item.text}</p>
+      ${docsMarkup}
     `;
     container.appendChild(card);
   });
@@ -744,16 +947,16 @@ function bindReveal() {
 }
 
 function setFloorPlans() {
-  planMap.first.src = `data:image/png;base64,${atlasData.images.first}`;
-  planMap.first.dataset.lightboxSrc = `data:image/png;base64,${atlasData.images.first}`;
+  planMap.first.src = recoveredDrawingSources.first;
+  planMap.first.dataset.lightboxSrc = recoveredDrawingSources.first;
   planMap.first.dataset.lightboxTitle = "First Floor Plan";
 
-  planMap.second.src = `data:image/png;base64,${atlasData.images.second}`;
-  planMap.second.dataset.lightboxSrc = `data:image/png;base64,${atlasData.images.second}`;
+  planMap.second.src = recoveredDrawingSources.second;
+  planMap.second.dataset.lightboxSrc = recoveredDrawingSources.second;
   planMap.second.dataset.lightboxTitle = "Second Floor Plan";
 
-  planMap.basement.src = `data:image/png;base64,${atlasData.images.basement}`;
-  planMap.basement.dataset.lightboxSrc = `data:image/png;base64,${atlasData.images.basement}`;
+  planMap.basement.src = recoveredDrawingSources.basement;
+  planMap.basement.dataset.lightboxSrc = recoveredDrawingSources.basement;
   planMap.basement.dataset.lightboxTitle = "Basement Plan";
 }
 
@@ -768,6 +971,7 @@ function init() {
   buildHeroStats();
   buildGuideCards();
   buildDrawingsGallery();
+  buildGraphContext();
   buildRepairFilters();
   renderRepairs();
   buildPestFilters();
