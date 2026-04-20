@@ -914,6 +914,10 @@ main {
   padding: 28px;
 }
 
+.lightbox[hidden] {
+  display: none !important;
+}
+
 .lightbox-figure {
   max-width: min(1100px, calc(100vw - 56px));
   max-height: calc(100vh - 56px);
