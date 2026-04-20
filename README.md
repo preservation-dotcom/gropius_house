@@ -8,14 +8,14 @@ This folder contains a rebuilt static homepage for the Gropius House environment
 - `styles.css`: redesigned visual system and responsive layout
 - `app.js`: rebuilt interaction layer for the atlas, repairs archive, pest comparison, and image records
 - `data.js`: extracted source data used by the new interface
-- `assets/`: site plan and graph images used in the new design
-- `current-site.html`: preserved source snapshot used to extract the original dataset
+- `assets/`: site plan and linked conservation PDFs used in the new design
+- `images/`: recovered original site photos, pest-board photos, and plan images from the shared source package
 
 ## Notes
 
-- The floor plan images used in the atlas are preserved from the original source and embedded through `data.js`.
-- The `Latest Site Images` and `Pest Comparison` sections preserve the original image slots and labels.
-- If you later recover the old `images/` folder, place it next to `index.html` and those cards will automatically render the original visuals again.
+- The first-floor, second-floor, basement, latest-site, and pest-comparison images now point to recovered source files instead of fallback placeholders.
+- The 1945 site plan is included in `assets/site-plan-1945.jpg`.
+- No archival section/elevation image was present in the recovered source site package, so those blank placeholders were removed from the drawings strip.
 
 ## GitHub Upload
 
@@ -26,10 +26,10 @@ Upload these files and folders to the repository root:
 - `app.js`
 - `data.js`
 - `assets/`
+- `images/`
 
 Optional to keep:
 
 - `README.md`
-- `current-site.html`
 
 If GitHub Pages is already configured for the repo root, the site should publish from `index.html`.
