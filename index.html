@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gropius House Environmental Atlas</title>
+  <meta
+    name="description"
+    content="A rebuilt, interactive preservation interface for the Gropius House environmental atlas, repairs archive, pest comparison, and image records."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-noise" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#top">
+      <span class="brand-kicker">Preservation Evidence Interface</span>
+      <span class="brand-title">Gropius House Environmental Atlas</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="#logic">How to Read</a>
+      <a href="#drawings">Drawings</a>
+      <a href="#atlas">Atlas</a>
+      <a href="#repairs">Repairs</a>
+      <a href="#archives">Archives</a>
+    </nav>
+    <button class="header-cta" type="button" data-scroll="#atlas">Open Atlas</button>
+  </header>
+
+  <main id="top">
+    <section class="hero section reveal">
+      <div class="hero-copy">
+        <p class="eyebrow">Research, monitoring, and condition records brought into one navigable surface.</p>
+        <h1>Rebuilt as a living homepage for spatial evidence, not a dead data dump.</h1>
+        <p class="hero-summary">
+          This version keeps the original Gropius House content depth intact, but reorganizes it into a cleaner,
+          trend-forward interface: guidance, floor-based environmental readings, repair history, pest comparison,
+          and field imagery all tied back to preservation interpretation.
+        </p>
+        <div class="hero-actions">
+          <button type="button" class="primary-button" data-scroll="#atlas">Explore The Atlas</button>
+          <button type="button" class="ghost-button" data-scroll="#archives">Jump To Archives</button>
+        </div>
+        <div class="hero-stats" id="heroStats"></div>
+      </div>
+
+      <div class="hero-media">
+        <article class="plan-card">
+          <div class="plan-card-topline">1945 Site Context</div>
+          <img
+            src="assets/site-plan-1945.jpg"
+            alt="1945 site plan related to the Gropius House context"
+            class="plan-card-image"
+            data-lightbox-src="assets/site-plan-1945.jpg"
+            data-lightbox-title="1945 Site Plan"
+          >
+          <div class="plan-card-note">
+            A graphic anchor for the estate context, used here as the visual threshold into the archive.
+          </div>
+        </article>
+
+        <div class="hero-sidecards">
+          <article class="mini-panel">
+            <span class="mini-label">Interpretive stance</span>
+            <strong>Reference tool, not a solve tool</strong>
+            <p>Keep comparison and diagnosis separate. The interface organizes evidence before judgment.</p>
+          </article>
+          <article class="mini-panel">
+            <span class="mini-label">Primary evidence modes</span>
+            <strong>Spatial, temporal, visual</strong>
+            <p>Floor plans, year and month filters, repairs logs, pest boards, and image archives work together.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="logic" class="section reveal">
+      <div class="section-head">
+        <p class="section-kicker">How To Read</p>
+        <h2>Preservation logic first, interface second.</h2>
+        <p>
+          The original guidance is preserved here as an interpretive sequence. Each card is meant to keep the user from
+          jumping straight from a value spike to a repair conclusion.
+        </p>
+      </div>
+      <div class="guide-grid" id="guideGrid"></div>
+    </section>
+
+    <section id="drawings" class="section reveal">
+      <div class="section-head">
+        <p class="section-kicker">House Basics / Drawings</p>
+        <h2>The reference layer: house facts, plan assets, and graph evidence.</h2>
+        <p>
+          Drawings remain the orientation point for everything else. The environmental atlas, repairs archive, and
+          image records all make more sense when they stay grounded in plan logic and building fabric.
+        </p>
+      </div>
+
+      <div class="drawings-layout">
+        <article class="house-basics-card">
+          <div class="fact-stack">
+            <span class="fact-label">Built</span>
+            <span class="fact-value">1938</span>
+          </div>
+          <div class="fact-stack">
+            <span class="fact-label">Architect</span>
+            <span class="fact-value">Walter Gropius</span>
+          </div>
+          <div class="fact-stack">
+            <span class="fact-label">Location</span>
+            <span class="fact-value">Lincoln, Massachusetts</span>
+          </div>
+          <div class="fact-stack">
+            <span class="fact-label">Construction</span>
+            <span class="fact-value">
+              Modern wood framing with flat roof, plaster and wood surfaces, steel elements, glass block, and large
+              glazed openings integrated with the site.
+            </span>
+          </div>
+          <div class="editor-note">
+            The source conversation treated these drawings as orientation tools rather than decorative inserts. That
+            logic stays the same here.
+          </div>
+        </article>
+
+        <div class="drawings-gallery" id="drawingsGallery"></div>
+      </div>
+
+      <div class="evidence-strip">
+        <article class="evidence-card">
+          <div class="evidence-copy">
+            <p class="card-kicker">Long-range graph</p>
+            <h3>Expanded time window for temperature and relative humidity</h3>
+            <p>
+              A retained graph view showing multi-year overlap across room loggers and RH/temperature behavior.
+            </p>
+          </div>
+          <img
+            src="assets/graph-full-range.png"
+            alt="Long-range temperature and relative humidity graph"
+            class="evidence-image"
+            data-lightbox-src="assets/graph-full-range.png"
+            data-lightbox-title="Long-Range Environmental Graph"
+          >
+        </article>
+
+        <article class="evidence-card">
+          <div class="evidence-copy">
+            <p class="card-kicker">Focused graph</p>
+            <h3>Windowed comparison for recent years</h3>
+            <p>
+              A tighter range view for reading shorter-term variance and cross-sensor relationships with less visual
+              noise.
+            </p>
+          </div>
+          <img
+            src="assets/graph-windowed.jpeg"
+            alt="Focused temperature and relative humidity graph"
+            class="evidence-image"
+            data-lightbox-src="assets/graph-windowed.jpeg"
+            data-lightbox-title="Focused Environmental Graph"
+          >
+        </article>
+      </div>
+    </section>
+
+    <section id="atlas" class="section reveal">
+      <div class="section-head">
+        <p class="section-kicker">Environmental Atlas</p>
+        <h2>The same evidence depth, restructured as a cleaner interactive lab.</h2>
+        <p>
+          Floor-based markers, category filtering, period controls, and detailed values are preserved from the earlier
+          viewer. The presentation has been rebuilt to feel more intentional and legible.
+        </p>
+      </div>
+
+      <div class="atlas-shell">
+        <div class="atlas-main">
+          <div class="control-shelf">
+            <label class="field">
+              <span>View</span>
+              <select id="periodMode">
+                <option value="all">All data</option>
+                <option value="year">By year</option>
+                <option value="month">By month (average across years)</option>
+                <option value="year_month">By year-month</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span>Period</span>
+              <select id="periodSelect"></select>
+            </label>
+
+            <label class="field">
+              <span>Metric</span>
+              <select id="metricSelect">
+                <option value="temp_mean">Temperature · mean</option>
+                <option value="temp_max">Temperature · max</option>
+                <option value="temp_min">Temperature · min</option>
+                <option value="temp_std">Temperature · std dev</option>
+                <option value="rh_mean" selected>Relative humidity · mean</option>
+                <option value="rh_max">Relative humidity · max</option>
+                <option value="rh_min">Relative humidity · min</option>
+                <option value="rh_std">Relative humidity · std dev</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span>Label style</span>
+              <select id="unitStyle">
+                <option value="full">Show units</option>
+                <option value="compact">Compact</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="atlas-toolbar">
+            <div class="chip-group">
+              <button id="toggleInterior" class="chip is-active" type="button">Interior</button>
+              <button id="toggleWall" class="chip is-active" type="button">Wall cavities</button>
+              <button id="toggleOutside" class="chip is-active" type="button">Exterior</button>
+            </div>
+            <div class="chip-group">
+              <button id="showAllBtn" class="chip" type="button">Show all labels</button>
+              <button id="resetBtn" class="chip chip-accent" type="button">Reset</button>
+            </div>
+          </div>
+
+          <div class="atlas-legend">
+            <span><i style="background:#d62828;"></i>Interior long-term logger</span>
+            <span><i style="background:#1d4ed8;"></i>Wall cavity logger</span>
+            <span><i style="background:#16a34a;"></i>Exterior logger</span>
+          </div>
+
+          <div class="atlas-board-grid">
+            <article class="floor-panel">
+              <div class="floor-head">
+                <p>Level 01</p>
+                <h3>First Floor</h3>
+              </div>
+              <div class="floor-stage" id="firstFloor">
+                <img class="plan-image" id="firstPlan" alt="First floor plan">
+              </div>
+            </article>
+
+            <article class="floor-panel">
+              <div class="floor-head">
+                <p>Level 02</p>
+                <h3>Second Floor</h3>
+              </div>
+              <div class="floor-stage" id="secondFloor">
+                <img class="plan-image" id="secondPlan" alt="Second floor plan">
+              </div>
+            </article>
+
+            <article class="floor-panel basement-panel">
+              <div class="floor-head">
+                <p>Level 00</p>
+                <h3>Basement</h3>
+              </div>
+              <div class="floor-stage basement-stage" id="basementFloor">
+                <img class="plan-image" id="basementPlan" alt="Basement plan">
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <aside class="atlas-inspector">
+          <p class="panel-kicker">Selected Point</p>
+          <h3 id="detailTitle">Select a point</h3>
+          <p class="inspector-subtitle" id="detailSubtitle">Click any marker to see detailed values.</p>
+
+          <div class="metric-pairs">
+            <article class="metric-tile">
+              <span>Temperature</span>
+              <strong id="tempMain">—</strong>
+              <small id="tempSub">—</small>
+            </article>
+            <article class="metric-tile">
+              <span>Relative humidity</span>
+              <strong id="rhMain">—</strong>
+              <small id="rhSub">—</small>
+            </article>
+          </div>
+
+          <div class="detail-table" id="detailTable"></div>
+          <div class="inspector-note" id="detailNote"></div>
+
+          <div class="micro-proof">
+            <p class="panel-kicker">Summer Comparison</p>
+            <div class="mini-proof-grid" id="summerCompare"></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="repairs" class="section reveal">
+      <div class="section-head">
+        <p class="section-kicker">Repairs / Interventions</p>
+        <h2>A chronological context layer for what the building has already lived through.</h2>
+        <p>
+          These entries are preserved as a quick-use timeline, filtered by feature category. The list supports
+          interpretation; it does not replace technical diagnosis.
+        </p>
+      </div>
+
+      <div class="filter-row" id="repairFilters"></div>
+      <div class="repairs-grid" id="repairsList"></div>
+    </section>
+
+    <section id="archives" class="section reveal">
+      <div class="section-head">
+        <p class="section-kicker">Archives</p>
+        <h2>Pest comparison and latest image records, rebuilt as browseable modules.</h2>
+        <p>
+          The date comparison logic and image grouping remain intact. If the original `images/` asset folder is dropped
+          back in later, these cards will automatically show the same visuals again.
+        </p>
+      </div>
+
+      <div class="archive-grid">
+        <article class="archive-panel">
+          <div class="archive-head">
+            <div>
+              <p class="panel-kicker">Pest Comparison</p>
+              <h3>Pest control images by inspection date</h3>
+            </div>
+            <div class="filter-row compact" id="pestDateFilters"></div>
+          </div>
+          <div class="image-grid pest-grid" id="pestGallery"></div>
+        </article>
+
+        <article class="archive-panel">
+          <div class="archive-head">
+            <div>
+              <p class="panel-kicker">Latest Site Images</p>
+              <h3>Grouped as supporting visual context</h3>
+            </div>
+            <div class="filter-row compact" id="imageFilters"></div>
+          </div>
+          <div class="image-grid" id="imagesGallery"></div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close image">Close</button>
+    <figure class="lightbox-figure">
+      <img id="lightboxImage" alt="">
+      <figcaption id="lightboxCaption"></figcaption>
+    </figure>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
