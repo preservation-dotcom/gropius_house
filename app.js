@@ -121,34 +121,46 @@ const legacyGraphMeta = {
   ],
   series: [
     {
-      label: "Basement",
-      value: "GRO-Basement-2374607",
-      note: "Tracked in the previous graph exports as a long-term indoor logger series.",
+      status: "Mapped in atlas",
+      room: "Basement",
+      summary:
+        "Use this as the basement interior comparison series carried forward from the earlier chart exports.",
+      source: "Source reference: GRO-Basement-2374607",
     },
     {
-      label: "Dressing Room",
-      value: "GRO-DressingRoom-2374606",
-      note: "Included in both the full and focused comparison windows.",
+      status: "Mapped in atlas",
+      room: "Dressing Room",
+      summary:
+        "Use this as the second-floor dressing room series included in both the full and focused comparison windows.",
+      source: "Source reference: GRO-DressingRoom-2374606",
     },
     {
-      label: "Living Room",
-      value: "GRO-LivingRoom-2374605",
-      note: "Core first-floor reference series retained in the current spatial atlas.",
+      status: "Mapped in atlas",
+      room: "Living Room",
+      summary:
+        "Use this as the main first-floor interior reference series; it remains spatially plotted in the current atlas.",
+      source: "Source reference: GRO-LivingRoom-2374605",
     },
     {
-      label: "Sewing Room",
-      value: "GRO-SewingRoom-1076435",
-      note: "Appeared in the graph exports but is not spatially plotted without verified plan coordinates.",
+      status: "Reference only",
+      room: "Sewing Room",
+      summary:
+        "This series appears in the earlier chart exports but is not placed on the plan because its recovered location could not be verified.",
+      source: "Source reference: GRO-SewingRoom-1076435",
     },
     {
-      label: "Study Office",
-      value: "GRO-StudyOffice-?",
-      note: "Legacy export series preserved as reference inventory only because the recovered source did not confirm its precise marker location.",
+      status: "Reference only",
+      room: "Study Office",
+      summary:
+        "This room is retained as comparison context from the earlier exports, but its precise plan position was not confirmed in the recovered materials.",
+      source: "Source reference: logger ID not confirmed in the recovered export naming",
     },
     {
-      label: "Living Room Chamber",
-      value: "Logger IDs 1255433 and 20459088",
-      note: "The graph exports show two chamber-related logger campaigns, so chamber readings should be treated as repeated monitoring rather than one continuous sensor.",
+      status: "Repeated campaign",
+      room: "Living Room Chamber",
+      summary:
+        "Read this as two separate chamber monitoring campaigns rather than one continuous sensor record.",
+      source: "Source references: logger IDs 1255433 and 20459088",
     },
   ],
   notes: [
@@ -601,9 +613,10 @@ function buildGraphContext() {
     const card = document.createElement("article");
     card.className = "graph-series-item";
     card.innerHTML = `
-      <span>${item.label}</span>
-      <strong>${item.value}</strong>
-      <p>${item.note}</p>
+      <span>${item.status}</span>
+      <strong>${item.room}</strong>
+      <p>${item.summary}</p>
+      ${item.source ? `<div class="graph-source">${item.source}</div>` : ""}
     `;
     series.appendChild(card);
   });

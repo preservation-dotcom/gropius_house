@@ -948,6 +948,13 @@ main {
   line-height: 1.55;
 }
 
+.graph-source {
+  margin-top: 10px;
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
 .archive-head {
   display: flex;
   justify-content: space-between;
