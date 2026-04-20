@@ -407,14 +407,6 @@ main {
   line-height: 1.5;
 }
 
-.editor-note {
-  padding: 14px;
-  border-radius: var(--radius-sm);
-  background: var(--accent-soft);
-  color: #584336;
-  line-height: 1.6;
-}
-
 .drawings-gallery {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -471,6 +463,10 @@ main {
     linear-gradient(180deg, rgba(255, 252, 247, 0.88), rgba(240, 230, 218, 0.78));
   color: #52463a;
   line-height: 1.55;
+}
+
+.missing-visual[hidden] {
+  display: none !important;
 }
 
 .evidence-strip {
